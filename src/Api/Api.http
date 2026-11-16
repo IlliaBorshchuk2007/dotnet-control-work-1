@@ -1,0 +1,34 @@
+@baseUrl = http://localhost:5080
+@roomId = 00000000-0000-0000-0000-000000000000
+
+### List rooms
+GET {{baseUrl}}/rooms
+Accept: application/json
+
+### Create room (copy returned id into roomId)
+POST {{baseUrl}}/rooms
+Content-Type: application/json
+
+{
+  "number": "101",
+  "floor": 1,
+  "pricePerNight": 1800.00,
+  "type": "Standard",
+  "isAvailable": true
+}
+
+### Get by id
+GET {{baseUrl}}/rooms/{{roomId}}
+Accept: application/json
+
+### Update room
+PUT {{baseUrl}}/rooms/{{roomId}}
+Content-Type: application/json
+
+{
+  "number": "101",
+  "floor": 1,
+  "pricePerNight": 2100.00,
+  "type": "Deluxe",
+  "isAvailable": false
+}
